@@ -7,39 +7,77 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+/**
+ * MapsActivity
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    /**
+     * GoogleMap obj
+     */
     private GoogleMap mMap;
+
+    /**
+     * Polygon colour
+     */
     private static final int COLOUR_BLUE_ARGB = 0xff4286f4;
+
+    /**
+     * Polygon line width
+     */
     private static final int POLYLINE_STROKE_WIDTH_PX = 7;
 
+    /**
+     * Initializes activity
+     *
+     * @param savedInstanceState - Reference to bundle obj
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
 
+    /**
+     * <p>
+     *     Applies map settings
+     * </p>
+     *
+     * @param googleMap - GoogleMap obj
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        //Focus camera on Maple Ridge and add marker
-        LatLng mapleRidge = new LatLng(49.264341, -122.526957);
-        //mMap.addMarker(new MarkerOptions().position(mapleRidge).title("Marker in Maple Ridge"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(mapleRidge));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
-
+        this.focusMapView(mMap);
         this.drawPolygon(mMap);
     }
 
+    /**
+     * <p>
+     *     Focuses the view of the map on Maple Ridge
+     * </p>
+     *
+     * @param googleMap - Googlemap obj
+     */
+    public static void focusMapView(GoogleMap googleMap) {
+        LatLng mapleRidge = new LatLng(49.264341, -122.526957);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(mapleRidge));
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
+    }
+
+    /**
+     * <p>
+     *     Draws the polygon outlining Maple Ridge's city boundary
+     * </p>
+     *
+     * @param googleMap - GoogleMap obj
+     */
     public static void drawPolygon(GoogleMap googleMap) {
         Polyline polyline = googleMap.addPolyline(new PolylineOptions()
                 .add(
