@@ -1,7 +1,11 @@
 package com.example.watch_dog;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -9,6 +13,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
+import com.google.maps.android.heatmaps.HeatmapTileProvider;
+
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * MapsActivity
@@ -19,6 +33,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * GoogleMap obj
      */
     private GoogleMap mMap;
+
+    /**
+     * HeatmapTileProvider
+     */
+    private HeatmapTileProvider mProvider;
 
     /**
      * Polygon colour
@@ -42,6 +61,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        new CrimeDataParser(this).execute(this);
     }
 
     /**
@@ -54,6 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
         this.focusMapView(mMap);
         this.drawPolygon(mMap);
     }
@@ -65,7 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      *
      * @param googleMap - Googlemap obj
      */
-    public static void focusMapView(GoogleMap googleMap) {
+    public void focusMapView(GoogleMap googleMap) {
         LatLng mapleRidge = new LatLng(49.264341, -122.526957);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(mapleRidge));
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
@@ -78,7 +99,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      *
      * @param googleMap - GoogleMap obj
      */
-    public static void drawPolygon(GoogleMap googleMap) {
+    public void drawPolygon(GoogleMap googleMap) {
         Polyline polyline = googleMap.addPolyline(new PolylineOptions()
                 .add(
                         new LatLng(49.1687455, -122.4623709),
@@ -418,5 +439,110 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 ));
         polyline.setColor(COLOUR_BLUE_ARGB);
         polyline.setWidth(POLYLINE_STROKE_WIDTH_PX);
+    }
+
+    /**
+     * <p>
+     *     Draws the heat map
+     * </p>
+     *
+     * @param crimeLatLngs - Lat and lngs of all crimes
+     */
+    public void drawHeatMap(ArrayList<LatLng> crimeLatLngs) {
+        this.mProvider = new HeatmapTileProvider.Builder()
+                .data(crimeLatLngs)
+                .build();
+        this.mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider));
+    }
+
+    /**
+     * <p>
+     *     Parse json crime data
+     * </p>
+     */
+    private class CrimeDataParser extends AsyncTask<Context, Void, ArrayList<LatLng>> {
+
+        /**
+         * <p>
+         *     Map activity
+         * </p>
+         */
+        private MapsActivity map;
+
+        /**
+         * <p>
+         *     Constructor
+         * </p>
+         * @param context
+         */
+        public CrimeDataParser(MapsActivity context) {
+            this.map = context;
+        }
+
+        /**
+         * <p>
+         *     toString the json crime data
+         * </p>
+         *
+         * @param context - Acitivity
+         * @return Crime data as a string
+         */
+        public String loadJSONFromAsset(Context context) {
+            String json = null;
+            try {
+                InputStream is = context.getAssets().open("Property_Crimes_last_recorded_14_days.json");
+                int size = is.available();
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                json = new String(buffer, "UTF-8");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                return null;
+            }
+            return json;
+        }
+
+        /**
+         * <p>
+         *     Parses the lat and lng for all crimes
+         * </p>
+         *
+         * @param data - JSON object
+         * @return - List of lat and lngs for all crimes
+         */
+        public ArrayList<LatLng> parseCrimeLatLngs(JSONObject data) {
+            ArrayList<LatLng> crimeLatLngs = new ArrayList<>();
+            try {
+                JSONArray features = data.getJSONArray("features");
+                for (int i = 0; i < features.length(); i++) {
+                    JSONArray latLng = ((JSONObject) features.get(i)).getJSONObject("geometry")
+                                                                     .getJSONArray("coordinates");
+                    double lat = latLng.getDouble(1);
+                    double lng = latLng.getDouble(0);
+
+                    LatLng point = new LatLng(lat, lng);
+                    crimeLatLngs.add(point);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return crimeLatLngs;
+        }
+
+        @Override
+        protected ArrayList<LatLng> doInBackground(Context... contexts) {
+            try {
+                return parseCrimeLatLngs(new JSONObject(loadJSONFromAsset(contexts[0])));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<LatLng> result) {
+            map.drawHeatMap(result);
+        }
     }
 }

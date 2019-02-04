@@ -1,0 +1,2117 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655616,
+        "FileNumber": "2019-1526",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T02:34:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": null,
+        "StreetName": "WEST ST / LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "2:34 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.66438413820231,
+          49.22120372839794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655617,
+        "FileNumber": "2019-1534",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T07:15:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "BREAK & ENTER-BUSINESS",
+        "OffenseCategory": "BREAK & ENTER - BUS",
+        "HouseNumber": "216XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "7:15 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62239330901618,
+          49.217026207977135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655618,
+        "FileNumber": "2019-1540",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T09:10:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "105XX",
+        "StreetName": "BLOCK ROBERTSON ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "9:10 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53651763517553,
+          49.19323571984838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655619,
+        "FileNumber": "2019-1542",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T09:32:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "116XX",
+        "StreetName": "227TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "9:32 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59496438916149,
+          49.21279544095551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655620,
+        "FileNumber": "2019-1549",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T10:33:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT OF AUTO UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "120XX",
+        "StreetName": "IRVING ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "10:33 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65846547704284,
+          49.22316534472038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655621,
+        "FileNumber": "2019-1551",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T10:41:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": null,
+        "StreetName": "121ST AVE / IRVING ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "10:41 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65846361727364,
+          49.2234351979366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655622,
+        "FileNumber": "2019-1562",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T12:49:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "217XX",
+        "StreetName": "124TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "12:49 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61915145488136,
+          49.22789987467987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655623,
+        "FileNumber": "2019-1569",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T13:16:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "221XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "1:16 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60756412963744,
+          49.21688682578849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655624,
+        "FileNumber": "2019-1570",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T13:28:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "130XX",
+        "StreetName": "210TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "1:28 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63897986149979,
+          49.239837310719764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655625,
+        "FileNumber": "2019-1572",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T13:42:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "119XX",
+        "StreetName": "207TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "1:42 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.64791140688016,
+          49.220255163621516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655626,
+        "FileNumber": "2019-1576",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T14:18:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT-OTHER OVER $5000",
+        "OffenseCategory": "OTHER THEFT O/5000",
+        "HouseNumber": "192XX",
+        "StreetName": "119TH AVE",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "2:18 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6891170077776,
+          49.21902411763359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655627,
+        "FileNumber": "2019-1577",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T14:35:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "BREAK & ENTER-OTHER",
+        "OffenseCategory": "BREAK & ENTER - OTH",
+        "HouseNumber": "266XX",
+        "StreetName": "98TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "2:35 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.48395932807732,
+          49.17915996046532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655628,
+        "FileNumber": "2019-1583",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T15:14:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": null,
+        "StreetName": "LOUGHEED HWY / OLD DEWDNEY TRUNK RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "3:14 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.71946677315638,
+          49.2430292329001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655629,
+        "FileNumber": "2019-1586",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T15:46:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "119XX",
+        "StreetName": "249A ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "3:46 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53146419265067,
+          49.2196616212613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655630,
+        "FileNumber": "2019-1587",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T15:43:00.000Z",
+        "ReportedWeekday": "Tuesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "119XX",
+        "StreetName": "BRUCE PL",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "3:43 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.66151626122823,
+          49.218856583590515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655631,
+        "FileNumber": "2019-1589",
+        "ReportedDate": "2019-01-20T00:00:00.000Z",
+        "ReportedTime": "2019-01-20T15:48:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "147XX",
+        "StreetName": "BLOCK NEAVES RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 20, 2019",
+        "ReportedTimeText": "3:48 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.64453662986894,
+          49.26953884581753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655632,
+        "FileNumber": "2019-1625",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T03:56:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "123XX",
+        "StreetName": "EDGE ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "3:56 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59841764246366,
+          49.2271999857245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655633,
+        "FileNumber": "2019-1634",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T09:12:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "215XX",
+        "StreetName": "BLOCK CHERRINGTON AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "9:12 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62595532867225,
+          49.21811723392922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655634,
+        "FileNumber": "2019-1636",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T09:14:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "227XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "9:14 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59342013355138,
+          49.21692785971378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655635,
+        "FileNumber": "2019-1637",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T09:23:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "116XX",
+        "StreetName": "284TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "9:23 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4352708189585,
+          49.213384412941366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655636,
+        "FileNumber": "2019-1647",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T11:31:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "118XX",
+        "StreetName": "LAITY ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "11:31 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63185595743735,
+          49.21867590865027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655637,
+        "FileNumber": "2019-1666",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T15:37:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "118XX",
+        "StreetName": "STEPHENS ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "3:37 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5814655402639,
+          49.217874646618874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655638,
+        "FileNumber": "2019-1675",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T16:57:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "121XX",
+        "StreetName": "224TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "4:57 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60132932192293,
+          49.223791858961775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655639,
+        "FileNumber": "2019-1680",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T17:12:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "118XX",
+        "StreetName": "216TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "5:12 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62279429865211,
+          49.21846676681592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655640,
+        "FileNumber": "2019-1683",
+        "ReportedDate": "2019-01-21T00:00:00.000Z",
+        "ReportedTime": "2019-01-21T17:25:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "203XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 21, 2019",
+        "ReportedTimeText": "5:25 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65684552645187,
+          49.219112661388245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655641,
+        "FileNumber": "2019-1702",
+        "ReportedDate": "2019-01-22T00:00:00.000Z",
+        "ReportedTime": "2019-01-22T01:09:00.000Z",
+        "ReportedWeekday": "Tuesday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "232XX",
+        "StreetName": "DEWDNEY TRUNK RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 22, 2019",
+        "ReportedTimeText": "1:09 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.57814852943565,
+          49.220381266863654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655642,
+        "FileNumber": "2019-1710",
+        "ReportedDate": "2019-01-22T00:00:00.000Z",
+        "ReportedTime": "2019-01-22T07:11:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "THEFT OF TRUCK UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "219XX",
+        "StreetName": "132ND AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 22, 2019",
+        "ReportedTimeText": "7:11 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61299519333352,
+          49.24236181263805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655643,
+        "FileNumber": "2019-1736",
+        "ReportedDate": "2019-01-22T00:00:00.000Z",
+        "ReportedTime": "2019-01-22T14:45:00.000Z",
+        "ReportedWeekday": "Monday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "119XX",
+        "StreetName": "222ND ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 22, 2019",
+        "ReportedTimeText": "2:45 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6069892005984,
+          49.22012318106489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655644,
+        "FileNumber": "2019-1737",
+        "ReportedDate": "2019-01-22T00:00:00.000Z",
+        "ReportedTime": "2019-01-22T14:50:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "113XX",
+        "StreetName": "240TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 22, 2019",
+        "ReportedTimeText": "2:50 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.55669914962043,
+          49.20797735226579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655645,
+        "FileNumber": "2019-1770",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T04:46:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "198XX",
+        "StreetName": "SILVERTHORNE PL",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "4:46 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.672438231162,
+          49.20773389473345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655646,
+        "FileNumber": "2019-1779",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T07:59:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "230XX",
+        "StreetName": "136TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "7:59 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.584493368138,
+          49.249818840453926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655647,
+        "FileNumber": "2019-1782",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T08:46:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "123XX",
+        "StreetName": "BLOCK GRAY ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "8:46 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60886343994665,
+          49.2262463452599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655648,
+        "FileNumber": "2019-1786",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T09:34:00.000Z",
+        "ReportedWeekday": "Tuesday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "217XX",
+        "StreetName": "124TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "9:34 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61819004642834,
+          49.22789670099493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655649,
+        "FileNumber": "2019-1797",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T11:22:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "122XX",
+        "StreetName": "271ST ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "11:22 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.47153472275879,
+          49.22489013564644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655650,
+        "FileNumber": "2019-1798",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T11:25:00.000Z",
+        "ReportedWeekday": "Tuesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "114XX",
+        "StreetName": "240TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "11:25 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.55680910080005,
+          49.21103618568455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655651,
+        "FileNumber": "2019-1799",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T11:27:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "264XX",
+        "StreetName": "CUNNINGHAM AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "11:27 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4890018392436,
+          49.1958238261738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655652,
+        "FileNumber": "2019-1814",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T13:05:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "MISCHIEF OVER $5000",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "225XX",
+        "StreetName": "ROYAL CRES",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "1:05 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59782072784809,
+          49.21613368753741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655653,
+        "FileNumber": "2019-1816",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T13:18:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": null,
+        "StreetName": "DEWDNEY TRUNK RD / 227TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "1:18 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59407797075943,
+          49.22043834319193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655654,
+        "FileNumber": "2019-1824",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T14:08:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "BREAK & ENTER-BUSINESS",
+        "OffenseCategory": "BREAK & ENTER - BUS",
+        "HouseNumber": "113XX",
+        "StreetName": "HARRIS RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "2:08 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.68972147036077,
+          49.210210348894385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655655,
+        "FileNumber": "2019-1832",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T14:47:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "117XX",
+        "StreetName": "BLOCK 224TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "2:47 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6018121452728,
+          49.21497812544859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655656,
+        "FileNumber": "2019-1838",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T16:18:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "223XX",
+        "StreetName": "BLOCK LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "4:18 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.603993983167,
+          49.216874641302795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655657,
+        "FileNumber": "2019-1844",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T17:00:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "230XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "5:00 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.58359630409261,
+          49.20942674964914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655658,
+        "FileNumber": "2019-1849",
+        "ReportedDate": "2019-01-23T00:00:00.000Z",
+        "ReportedTime": "2019-01-23T17:21:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "228XX",
+        "StreetName": "113TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 23, 2019",
+        "ReportedTimeText": "5:21 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.58978339218558,
+          49.20836945004224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655659,
+        "FileNumber": "2019-1882",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T07:21:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT OF TRUCK OVER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "211XX",
+        "StreetName": "119TH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "7:21 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63556224118636,
+          49.21886756746623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655660,
+        "FileNumber": "2019-1884",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T07:44:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "119XX",
+        "StreetName": "221ST ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "7:44 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61028776665104,
+          49.2197745447193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655661,
+        "FileNumber": "2019-1894",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T09:58:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "119XX",
+        "StreetName": "221ST ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "9:58 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61028776665104,
+          49.2197745447193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655662,
+        "FileNumber": "2019-1907",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T11:58:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": null,
+        "StreetName": "SHARPE RD / CONNECTING RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "11:58 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65562233952525,
+          49.25679919418929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655663,
+        "FileNumber": "2019-1912",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T13:10:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "228XX",
+        "StreetName": "GILBERT DR",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "1:10 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5851751140521,
+          49.25045095854847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655664,
+        "FileNumber": "2019-1914",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T13:24:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "225XX",
+        "StreetName": "ROYAL CRES",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "1:24 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59782072784809,
+          49.21613368753741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655665,
+        "FileNumber": "2019-1916",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T13:30:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "BREAK & ENTER-OTHER",
+        "OffenseCategory": "BREAK & ENTER - OTH",
+        "HouseNumber": "117XX",
+        "StreetName": "STEWART CRES",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "1:30 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.66731025464169,
+          49.21491548476942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655666,
+        "FileNumber": "2019-1920",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T14:12:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "209XX",
+        "StreetName": "WICKLUND AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "2:12 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.64198376415605,
+          49.223385296963926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655667,
+        "FileNumber": "2019-1933",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T16:20:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "217XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "4:20 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61937240190444,
+          49.21701629300445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655668,
+        "FileNumber": "2019-1934",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T16:16:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "116XX",
+        "StreetName": "LAITY ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "4:16 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63188401515015,
+          49.214897970214125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655669,
+        "FileNumber": "2019-1936",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T16:31:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "219XX",
+        "StreetName": "CLIFF PL",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "4:31 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61320380759594,
+          49.21564650537705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655670,
+        "FileNumber": "2019-1948",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T18:40:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "116XX",
+        "StreetName": "223RD ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "6:40 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60456404612317,
+          49.214267954227644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655671,
+        "FileNumber": "2019-1954",
+        "ReportedDate": "2019-01-24T00:00:00.000Z",
+        "ReportedTime": "2019-01-24T19:48:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "203XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 24, 2019",
+        "ReportedTimeText": "7:48 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6595882262497,
+          49.21966049446148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655672,
+        "FileNumber": "2019-1972",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T01:40:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "210XX",
+        "StreetName": "PENNY LANE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "1:40 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6366759609444,
+          49.21680215640481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655673,
+        "FileNumber": "2019-1983",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T08:27:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "113XX",
+        "StreetName": "BLOCK BURNETT ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "8:27 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.58951104727878,
+          49.20809862275227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655674,
+        "FileNumber": "2019-1985",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T08:38:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "123XX",
+        "StreetName": "BLOCK 222ND ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "8:38 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60694568423824,
+          49.225610165222804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655675,
+        "FileNumber": "2019-1989",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T09:37:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "122XX",
+        "StreetName": "188TH ST",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "9:37 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.70061716435785,
+          49.22481148002969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655676,
+        "FileNumber": "2019-2003",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T11:34:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "138XX",
+        "StreetName": "SILVER VALLEY RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "11:34 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.57647467817236,
+          49.25554668734792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655677,
+        "FileNumber": "2019-2008",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T12:26:00.000Z",
+        "ReportedWeekday": "Wednesday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "228XX",
+        "StreetName": "GILBERT DR",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "12:26 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.58544088786886,
+          49.25153134354335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655678,
+        "FileNumber": "2019-2019",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T14:28:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "BREAK & ENTER-OTHER",
+        "OffenseCategory": "BREAK & ENTER - OTH",
+        "HouseNumber": "227XX",
+        "StreetName": "LOUGHEED HWY",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "2:28 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59342013355138,
+          49.21692785971378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655679,
+        "FileNumber": "2019-2032",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T16:15:00.000Z",
+        "ReportedWeekday": "Thursday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "215XX",
+        "StreetName": "DEWDNEY TRUNK RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "4:15 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62346517176101,
+          49.22053787496309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655680,
+        "FileNumber": "2019-2034",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T16:43:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "222XX",
+        "StreetName": "122ND AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "4:43 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.606407765497,
+          49.22416908632941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655681,
+        "FileNumber": "2019-2038",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T17:14:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "216XX",
+        "StreetName": "MANOR AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "5:14 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.62039306477996,
+          49.227184338342994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655682,
+        "FileNumber": "2019-2046",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T18:18:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "188XX",
+        "StreetName": "ADVENT RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "6:18 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7000601952592,
+          49.226069374635834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655683,
+        "FileNumber": "2019-2063",
+        "ReportedDate": "2019-01-25T00:00:00.000Z",
+        "ReportedTime": "2019-01-25T22:21:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "115XX",
+        "StreetName": "224TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 25, 2019",
+        "ReportedTimeText": "10:21 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60251527406585,
+          49.21291162511116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655684,
+        "FileNumber": "2019-2070",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T00:45:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT OF AUTO UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "188XX",
+        "StreetName": "BLOCK 124A AVE",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "12:45 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.70003841401346,
+          49.22966742929518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655685,
+        "FileNumber": "2019-2087",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T08:39:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "98XX",
+        "StreetName": "240TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "8:39 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.55679578671275,
+          49.18180125275986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655686,
+        "FileNumber": "2019-2089",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T09:08:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT OF TRUCK UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "137XX",
+        "StreetName": "BLANEY RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "9:08 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.57677643493885,
+          49.25239945381801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655687,
+        "FileNumber": "2019-2094",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T10:05:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "112XX",
+        "StreetName": "GRAHAM ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "10:05 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44798558899424,
+          49.20597973814457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655688,
+        "FileNumber": "2019-2098",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T10:18:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT OF TRUCK OVER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "104XX",
+        "StreetName": "MCEACHERN ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "10:18 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53611346522933,
+          49.19242451501905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655689,
+        "FileNumber": "2019-2102",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T11:26:00.000Z",
+        "ReportedWeekday": "Friday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "233XX",
+        "StreetName": "HEMLOCK AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "11:26 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.57518076961742,
+          49.26219842027165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655690,
+        "FileNumber": "2019-2108",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T12:20:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "135XX",
+        "StreetName": "BLOCK NEAVES RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "12:20 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.64483484539562,
+          49.247141620877834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655691,
+        "FileNumber": "2019-2120",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T14:30:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "121XX",
+        "StreetName": "193A ST",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "2:30 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.68607145855404,
+          49.22288385575774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655692,
+        "FileNumber": "2019-2125",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T16:56:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT-OTHER UNDER $5000",
+        "OffenseCategory": "OTHER THEFT U/5000",
+        "HouseNumber": "225XX",
+        "StreetName": "ROYAL CRES",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "4:56 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59782072784809,
+          49.21613368753741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655693,
+        "FileNumber": "2019-2141",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T21:26:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "BREAK & ENTER-RESIDENCE",
+        "OffenseCategory": "BREAK & ENTER - RES",
+        "HouseNumber": "118XX",
+        "StreetName": "249A ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "9:26 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.53106840326646,
+          49.21795090474004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655694,
+        "FileNumber": "2019-2146",
+        "ReportedDate": "2019-01-26T00:00:00.000Z",
+        "ReportedTime": "2019-01-26T23:17:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "BREAK & ENTER-OTHER",
+        "OffenseCategory": "BREAK & ENTER - OTH",
+        "HouseNumber": "223XX",
+        "StreetName": "CALLAGHAN AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 26, 2019",
+        "ReportedTimeText": "11:17 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60360937703183,
+          49.21345510382716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655695,
+        "FileNumber": "2019-2150",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T00:19:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "219XX",
+        "StreetName": "CLIFF PL",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "12:19 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.6125193668749,
+          49.21537435213533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655696,
+        "FileNumber": "2019-2153",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T00:34:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "223XX",
+        "StreetName": "BLOCK NORTH AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "12:34 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.60400116926961,
+          49.21597513501619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655697,
+        "FileNumber": "2019-2165",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T06:57:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT OF AUTO UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "219XX",
+        "StreetName": "132ND AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "6:57 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.61299519333352,
+          49.24236181263805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655698,
+        "FileNumber": "2019-2169",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T09:48:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "115XX",
+        "StreetName": "BLOCK 240TH ST",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "9:48 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.55680910080005,
+          49.21103618568455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655699,
+        "FileNumber": "2019-2170",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T10:09:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "236XX",
+        "StreetName": "111A AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "10:09 am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.56647333333507,
+          49.20495603924911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655700,
+        "FileNumber": "2019-2184",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T12:39:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "144XX",
+        "StreetName": "RIPPINGTON RD",
+        "City": "PITT MEADOWS",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "12:39 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.70067553182092,
+          49.260612745366736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655701,
+        "FileNumber": "2019-2189",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T14:20:00.000Z",
+        "ReportedWeekday": "Saturday",
+        "Offense": "THEFT FROM MV UNDER $5000",
+        "OffenseCategory": "THEFT FROM VEHICLE",
+        "HouseNumber": "103XX",
+        "StreetName": "JACKSON RD",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "2:20 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.54025497148373,
+          49.18983242102981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655702,
+        "FileNumber": "2019-2190",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T14:21:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "MISCHIEF $5000 OR UNDER",
+        "OffenseCategory": "MISCHIEF TO PROPERTY",
+        "HouseNumber": "210XX",
+        "StreetName": "STONEHOUSE AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "2:21 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.63771069373809,
+          49.22553084424715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1655703,
+        "FileNumber": "2019-2208",
+        "ReportedDate": "2019-01-27T00:00:00.000Z",
+        "ReportedTime": "2019-01-27T18:38:00.000Z",
+        "ReportedWeekday": "Sunday",
+        "Offense": "THEFT OF TRUCK UNDER $5000",
+        "OffenseCategory": "AUTO THEFT",
+        "HouseNumber": "225XX",
+        "StreetName": "121ST AVE",
+        "City": "MAPLE RIDGE",
+        "ReportedDateText": "Jan 27, 2019",
+        "ReportedTimeText": "6:38 pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.59886898886273,
+          49.222344093512824
+        ]
+      }
+    }
+  ]
+}
