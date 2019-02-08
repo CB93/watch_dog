@@ -1,6 +1,7 @@
 package com.example.watch_dog;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlayOptions;
@@ -42,12 +45,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     /**
      * Polygon colour
      */
-    private static final int COLOUR_BLUE_ARGB = 0xff4286f4;
+    private static final int POLGON_BORDER_COLOUR = 0xff4286f4;
 
     /**
      * Polygon line width
      */
-    private static final int POLYLINE_STROKE_WIDTH_PX = 7;
+    private static final int POLYGON_STROKE_WIDTH_PX = 5;
+
+    /**
+     * Transparency
+     */
+    private static final int POLYGON_ALPHA = 0x324286f4;
 
     /**
      * Initializes activity
@@ -100,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * @param googleMap - GoogleMap obj
      */
     public void drawPolygon(GoogleMap googleMap) {
-        Polyline polyline = googleMap.addPolyline(new PolylineOptions()
+        Polygon polygon = googleMap.addPolygon(new PolygonOptions()
                 .add(
                         new LatLng(49.1687455, -122.4623709),
                         new LatLng(49.1710831, -122.462488899999983),
@@ -436,9 +444,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         new LatLng(49.1695195, -122.481511699999984),
                         new LatLng(49.1699011, -122.4699972),
                         new LatLng(49.1687455, -122.4623709)
-                ));
-        polyline.setColor(COLOUR_BLUE_ARGB);
-        polyline.setWidth(POLYLINE_STROKE_WIDTH_PX);
+                )
+                .strokeColor(POLGON_BORDER_COLOUR)
+                .strokeWidth(POLYGON_STROKE_WIDTH_PX)
+                .fillColor(POLYGON_ALPHA));
     }
 
     /**
