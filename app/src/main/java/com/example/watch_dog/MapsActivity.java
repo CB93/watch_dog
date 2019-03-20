@@ -1,16 +1,27 @@
 package com.example.watch_dog;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlayOptions;
@@ -22,23 +33,55 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * MapsActivity
  */
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectFinderListner {
 
     /**
      * GoogleMap obj
      */
     private GoogleMap mMap;
+    /**
+     * EditText view for destination
+     */
 
+    private EditText etDestination;
+    /**
+     * Edit Text VIew for starting point
+     */
+    private EditText etStart;
+
+    /**
+     * Button to FInd Path
+     */
+    private Button btnPath;
     /**
      * HeatmapTileProvider
      */
     private HeatmapTileProvider mProvider;
 
+
+    /**
+     * starting Marker
+     */
+    private List<Marker> startMark = new ArrayList<>();
+    /**
+     * ending Marker
+     */
+    private List<Marker> destMark = new ArrayList<>();
+    /**
+     * starting Marker
+     */
+    private List<Polyline> path = new ArrayList<>();
+    /**
+     * Dialog box for prolog
+     */
+    private ProgressDialog progDialog;
     /**
      * Polygon colour
      */
@@ -61,8 +104,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        btnPath = (Button) findViewById(R.id.btnRoute);
+        etStart = (EditText) findViewById(R.id.etStart);
+        etDestination = (EditText) findViewById(R.id.etDest);
         new CrimeDataParser(this).execute(this);
+
+        btnPath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            sendRequest();
+            closeKeyboard();
+            }
+        });
     }
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+    private void sendRequest() {
+        String start = etStart.getText().toString();
+        String dest = etDestination.getText().toString();
+        if (start.isEmpty()) {
+            Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (dest.isEmpty()) {
+            Toast.makeText(this, "Please enter destination address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try {
+            new FindingDirection(this, start, dest).execute();
+        } catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * <p>
@@ -453,6 +533,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .data(crimeLatLngs)
                 .build();
         this.mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider));
+    }
+
+    @Override
+    public void onDirectFinderStart() {
+        progDialog = ProgressDialog.show(this, "Please Wait.", "Finding Direction",true);
+        if(startMark != null){
+            for(Marker mark : startMark){
+                mark.remove();
+            }
+        }
+        if(destMark != null){
+            for(Marker mark : destMark){
+                mark.remove();
+            }
+        }
+        if(path != null){
+            for(Polyline poly : path){
+                poly.remove();
+            }
+        }
+    }
+
+    @Override
+    public void onDirectFinderSuccess(List<RouteFromStartToDest> routes) {
+        startMark = new ArrayList<>();
+        destMark = new ArrayList<>();
+        progDialog.dismiss();
+        path = new ArrayList<>();
+
+
+        for(RouteFromStartToDest route : routes){
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.sLoc, 16));
+           // startMark.add(mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.start))))
+
+            PolylineOptions polylineOptions = new PolylineOptions().geodesic(true).color(Color.BLUE).width(8);
+
+            for(int i =0; i< route.points.size();i++){
+                polylineOptions.add(route.points.get(i));
+            }
+            path.add(mMap.addPolyline(polylineOptions));
+        }
     }
 
     /**
