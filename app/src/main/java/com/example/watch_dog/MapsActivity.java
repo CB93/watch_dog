@@ -6,13 +6,16 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -40,7 +43,7 @@ import java.util.List;
 /**
  * MapsActivity
  */
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectFinderListner {
+public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallback, DirectFinderListner {
 
     /**
      * GoogleMap obj
@@ -105,10 +108,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
         btnPath = (Button) findViewById(R.id.btnRoute);
         etStart = (EditText) findViewById(R.id.etStart);
         etDestination = (EditText) findViewById(R.id.etDest);
         new CrimeDataParser(this).execute(this);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
 
         btnPath.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +125,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void closeKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {

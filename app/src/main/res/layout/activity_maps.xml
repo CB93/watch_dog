@@ -7,6 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"  >
+
+    <include
+        layout="@layout/toolbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,19 +28,21 @@
         android:hint="Enter destination address"
         android:text="1292 Lansdowne Dr, Coquitlam, BC V3E 1K6"
         android:id="@+id/etDest" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btnRoute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Route"
-            android:id="@+id/btnRoute" />
+            android:text="Route" />
     </LinearLayout>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map"
