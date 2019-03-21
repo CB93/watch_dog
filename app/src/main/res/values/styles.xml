@@ -1,9 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!-- colorPrimary is used for coloring the Toolbar -->
         <item name="colorPrimary">#303F9F</item>
@@ -11,13 +9,19 @@
         <item name="colorPrimaryDark">#303F9F</item>
         <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorControlHighlight">#FFFFFF</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+        <item name="android:editTextColor">#FFFFFF</item>
     </style>
 
 
-
-    <style name="myCustomMenuTextApearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
-        <item name="android:textColor">@color/white</item>
+    <style name="HeaderBar">
+        <item name="android:background">#303F9F</item>
     </style>
 
 </resources>

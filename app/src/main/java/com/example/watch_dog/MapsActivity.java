@@ -1,30 +1,41 @@
 package com.example.watch_dog;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlayOptions;
@@ -43,8 +54,32 @@ import java.util.List;
 /**
  * MapsActivity
  */
-public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallback, DirectFinderListner {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, DirectFinderListner {
 
+    /**
+     * Static Code for Requesting Users Location
+     */
+    private static final int REQUEST_FINE_LOCATION = 1;
+    /**
+     * Static int for Refresh time of Users coordinates
+     */
+    private static final int REFRESH_TIME = 5000;
+    /**
+     * Static int for Refresh distance for Users coordinates
+     */
+    private static final int REFRESH_DISSTANCE = 50;
+    /**
+     * Toolbar Obj, References toolbarlayout.xml
+     */
+    private  Toolbar myToolbar;
+    /**
+     *  Private instance of MyLocationListerner Class
+     */
+    private MyLocationListener locationListener;
+    /**
+     * LocationManager Obj
+     */
+    private LocationManager locationManager;
     /**
      * GoogleMap obj
      */
@@ -100,6 +135,8 @@ public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallba
      *
      * @param savedInstanceState - Reference to bundle obj
      */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,41 +144,77 @@ public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-
-        btnPath = (Button) findViewById(R.id.btnRoute);
-        etStart = (EditText) findViewById(R.id.etStart);
-        etDestination = (EditText) findViewById(R.id.etDest);
         new CrimeDataParser(this).execute(this);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+
+
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+        // Initializing Location Services
+        requestPermissions();
+        initLocationServices();
 
-        btnPath.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            sendRequest();
-            closeKeyboard();
-            }
-        });
+
+
+
     }
+
+
+
+
+    public void requestPermissions() {
+        String[] permissionList = new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+        ActivityCompat.requestPermissions(this ,permissionList, REQUEST_FINE_LOCATION);
+    }
+
+    public boolean initLocationServices() {
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "You must enable your Location Services for this app to work!", Toast.LENGTH_SHORT).show();
+        return false;
+        }
+        locationListener = new MyLocationListener(this);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, REFRESH_TIME, REFRESH_DISSTANCE, locationListener);
+        return true;
+    }
+
+
+    // Inflates Search Bar at the top of the menu. Queries Search text and parses it to String
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
+            @Override
+            public boolean onQueryTextSubmit(String text) {
+                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+                sendRequest(             locationListener.getAddress()
+, text);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                return false;
+            }
+
+        });
+
+        return true;
     }
 
-    private void closeKeyboard() {
+
+
+    private void sendRequest(String start,String dest) {
         View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-    private void sendRequest() {
-        String start = etStart.getText().toString();
-        String dest = etDestination.getText().toString();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+          imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
         if (start.isEmpty()) {
             Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
             return;
@@ -158,6 +231,7 @@ public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallba
     }
 
 
+
     /**
      * <p>
      *     Applies map settings
@@ -166,6 +240,7 @@ public class MapsActivity extends AppCompatActivity  implements OnMapReadyCallba
      * @param googleMap - GoogleMap obj
      */
     @Override
+
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
