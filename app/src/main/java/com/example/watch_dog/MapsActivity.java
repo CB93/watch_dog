@@ -1,24 +1,31 @@
 package com.example.watch_dog;
 
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.maps.android.heatmaps.HeatmapTileProvider;
-
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,39 +33,61 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
- * MapsActivity
+ * <p>
+ *     MapsActivity
+ * </p>
  */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     /**
-     * GoogleMap obj
+     * <p>
+     *     Logger
+     * </p>
+     */
+    private static final String TAG = MapsActivity.class.getSimpleName();
+
+    /**
+     * <p>
+     *     GoogleMap obj
+     * </p>
      */
     private GoogleMap mMap;
 
     /**
-     * HeatmapTileProvider
+     * <p>
+     *     HeatmapTileProvider
+     * </p>
      */
     private HeatmapTileProvider mProvider;
 
     /**
-     * Polygon colour
+     * <p>
+     *     Polygon colour
+     * </p>
      */
     private static final int POLGON_BORDER_COLOUR = 0xff4286f4;
 
     /**
-     * Polygon line width
+     * <p>
+     *     Polygon line width
+     * </p>
      */
     private static final int POLYGON_STROKE_WIDTH_PX = 5;
 
     /**
-     * Transparency
+     * <p>
+     *     Transparency
+     * </p>
      */
     private static final int POLYGON_ALPHA = 0x324286f4;
 
     /**
-     * Initializes activity
+     * <p>
+     *     Initializes activity
+     * </p>
      *
      * @param savedInstanceState - Reference to bundle obj
      */
@@ -69,7 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        new CrimeDataParser(this).execute(this);
+        new DataParser(this).execute(this);
     }
 
     /**
@@ -82,6 +111,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        try {
+            boolean success = mMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.map_style));
+
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: ", e);
+        }
+
+        /**
+         * <p>
+         *     Clicking a marker opens school site
+         * </p>
+         */
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String site = ((School) marker.getTag()).getSite();
+                Intent intent = new Intent(MapsActivity.this, SchoolPageActivity.class);
+                intent.putExtra("site", site);
+                startActivity(intent);
+                return false;
+            }
+        });
 
         this.focusMapView(mMap);
         this.drawPolygon(mMap);
@@ -96,8 +152,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     public void focusMapView(GoogleMap googleMap) {
         LatLng mapleRidge = new LatLng(49.264341, -122.526957);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(mapleRidge));
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mapleRidge, 10.5f));
     }
 
     /**
@@ -457,11 +512,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      *
      * @param crimeLatLngs - Lat and lngs of all crimes
      */
-    public void drawHeatMap(ArrayList<LatLng> crimeLatLngs) {
+    @TargetApi(Build.VERSION_CODES.N)
+    public void drawHeatMap(ArrayList<Object> crimeLatLngs) {
         this.mProvider = new HeatmapTileProvider.Builder()
-                .data(crimeLatLngs)
-                .build();
+                .data(crimeLatLngs.stream().map(x -> (LatLng) x).collect(Collectors.toList())).build();
         this.mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider));
+    }
+
+
+
+    /**
+     * <p>
+     *     Add school pins to map
+     * </p>
+     *
+     * @param schools - Schools
+     */
+    public void addSchoolPins(ArrayList<Object> schools) {
+        for (Object school : schools) {
+            Marker marker = this.mMap.addMarker(new MarkerOptions()
+                    .position(((School) school).getLatLng())
+                    .icon(BitmapDescriptorFactory.
+                            fromBitmap(resizeMapIcon("map_pin", 60, 60))));
+            marker.setTag(school);
+        }
+    }
+
+    /**
+     * <p>
+     *     Resize map icon
+     * </p>
+     *
+     * @param iconName - Icon name
+     * @param width - Width
+     * @param height - Height
+     * @return Icon
+     */
+    public Bitmap resizeMapIcon(String iconName, int width, int height){
+        Bitmap imageBitmap = BitmapFactory.decodeResource(
+                getResources(),
+                getResources().getIdentifier(iconName, "drawable", getPackageName()));
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, width, height, false);
+        return resizedBitmap;
     }
 
     /**
@@ -469,7 +561,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      *     Parse json crime data
      * </p>
      */
-    private class CrimeDataParser extends AsyncTask<Context, Void, ArrayList<LatLng>> {
+    private class DataParser extends AsyncTask<Context, Void, ArrayList<ArrayList<Object>>> {
 
         /**
          * <p>
@@ -484,7 +576,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          * </p>
          * @param context
          */
-        public CrimeDataParser(MapsActivity context) {
+        public DataParser(MapsActivity context) {
             this.map = context;
         }
 
@@ -494,12 +586,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          * </p>
          *
          * @param context - Acitivity
+         * @param file - Json file
          * @return Crime data as a string
          */
-        public String loadJSONFromAsset(Context context) {
+        public String loadJSONFromAsset(Context context, String file) {
             String json = null;
             try {
-                InputStream is = context.getAssets().open("Property_Crimes_last_recorded_14_days.json");
+                InputStream is = context.getAssets().open(file);
                 int size = is.available();
                 byte[] buffer = new byte[size];
                 is.read(buffer);
@@ -520,8 +613,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          * @param data - JSON object
          * @return - List of lat and lngs for all crimes
          */
-        public ArrayList<LatLng> parseCrimeLatLngs(JSONObject data) {
-            ArrayList<LatLng> crimeLatLngs = new ArrayList<>();
+        public ArrayList<Object> parseCrimeJSON(JSONObject data) {
+            ArrayList<Object> crimeLatLngs = new ArrayList<>();
             try {
                 JSONArray features = data.getJSONArray("features");
                 for (int i = 0; i < features.length(); i++) {
@@ -539,10 +632,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return crimeLatLngs;
         }
 
-        @Override
-        protected ArrayList<LatLng> doInBackground(Context... contexts) {
+        /**
+         * <p>
+         *     Parses the school data
+         * </p>
+         *
+         * @param data - JSON object
+         * @return - List of school data
+         */
+        public ArrayList<Object> parseSchoolJSON(JSONObject data) {
+            ArrayList<Object> schoolData = new ArrayList<>();
             try {
-                return parseCrimeLatLngs(new JSONObject(loadJSONFromAsset(contexts[0])));
+                JSONArray features = data.getJSONArray("features");
+                for (int i = 0; i < features.length(); i++) {
+                    JSONArray latLng = ((JSONObject) features.get(i)).getJSONObject("geometry")
+                            .getJSONArray("coordinates");
+                    double lat = latLng.getDouble(1);
+                    double lng = latLng.getDouble(0);
+
+                    LatLng point = new LatLng(lat, lng);
+                    String site = features.getJSONObject(i).getJSONObject("properties").getString("WebPage");
+                    schoolData.add(new School(point, site));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return schoolData;
+        }
+
+        @Override
+        protected ArrayList<ArrayList<Object>> doInBackground(Context... contexts) {
+            try {
+                ArrayList<ArrayList<Object>> result = new ArrayList<>();
+                result.add(parseCrimeJSON(new JSONObject(loadJSONFromAsset(contexts[0], "Property_Crimes_last_recorded_14_days.json"))));
+                result.add(parseSchoolJSON(new JSONObject(loadJSONFromAsset(contexts[0], "Schools.json"))));
+                return result;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -550,8 +674,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         @Override
-        protected void onPostExecute(ArrayList<LatLng> result) {
-            map.drawHeatMap(result);
+        protected void onPostExecute(ArrayList<ArrayList<Object>> result) {
+            map.drawHeatMap(result.get(0));
+            map.addSchoolPins(result.get(1));
         }
     }
 }
