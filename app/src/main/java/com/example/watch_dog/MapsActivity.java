@@ -1,31 +1,25 @@
 package com.example.watch_dog;
 
 import android.Manifest;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,11 +30,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.maps.android.heatmaps.HeatmapTileProvider;
-
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -51,15 +45,12 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * MapsActivity
  */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, DirectFinderListner {
 
-    /**
-     * Static Code for Requesting Users Location
-     */
-    private static final int REQUEST_FINE_LOCATION = 1;
     /**
      * Static int for Refresh time of Users coordinates
      */
@@ -71,7 +62,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     /**
      * Toolbar Obj, References toolbarlayout.xml
      */
-    private  Toolbar myToolbar;
+    private Toolbar myToolbar;
     /**
      *  Private instance of MyLocationListerner Class
      */
@@ -87,7 +78,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     /**
      * EditText view for destination
      */
-
     private EditText etDestination;
     /**
      * Edit Text VIew for starting point
@@ -146,55 +136,52 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
         new CrimeDataParser(this).execute(this);
 
+        // Initializing pages locationListener class
+        locationListener = new MyLocationListener(this);
+        initializeLocationServices();
 
-
+        // Initialzing Pages Toolbar
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+    }
+
+    /**
+     * Iniatializes pages Location services using the MyLocation Listener class
+     * Asks user for permission, if permission is valid, checks for location.
+     */
+    @SuppressLint("MissingPermission")
+    public void initializeLocationServices() {
         // Initializing Location Services
-        requestPermissions();
-        initLocationServices();
-
-
-
-
-    }
-
-
-
-
-    public void requestPermissions() {
-        String[] permissionList = new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
-        ActivityCompat.requestPermissions(this ,permissionList, REQUEST_FINE_LOCATION);
-    }
-
-    public boolean initLocationServices() {
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "You must enable your Location Services for this app to work!", Toast.LENGTH_SHORT).show();
-        return false;
-        }
-        locationListener = new MyLocationListener(this);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationListener.requestPermissions(this);
+        locationListener.initLocationServices(this);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, REFRESH_TIME, REFRESH_DISSTANCE, locationListener);
-        return true;
+
     }
 
-
-    // Inflates Search Bar at the top of the menu. Queries Search text and parses it to String
+    /**
+     * Inflates Menu, Checks for action bar for input.
+     * If input is valid, calls sendRequest() function
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
+
+        // Inflating Menu for toolbar
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-
+            // On action bar submit
             @Override
             public boolean onQueryTextSubmit(String text) {
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
-                sendRequest(             locationListener.getAddress()
-, text);
+                sendRequest(locationListener.getAddress(), text);
+
+                // "Maple Ridge" Use this for presentation
                 return false;
             }
 
@@ -209,27 +196,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
-    private void sendRequest(String start,String dest) {
+    /**
+     *
+     * @param start Users current destination generated from location Services
+     * @param dest Destination from toolBar input
+     */
+    private void sendRequest(String start, String dest) {
         View view = this.getCurrentFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-          imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-        if (start.isEmpty()) {
-            Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
-            return;
-        }
         if (dest.isEmpty()) {
             Toast.makeText(this, "Please enter destination address!", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
             new FindingDirection(this, start, dest).execute();
-        } catch (UnsupportedEncodingException e){
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
-
 
 
     /**
@@ -244,6 +230,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         this.focusMapView(mMap);
         this.drawPolygon(mMap);
     }
@@ -256,9 +243,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * @param googleMap - Googlemap obj
      */
     public void focusMapView(GoogleMap googleMap) {
-        LatLng mapleRidge = new LatLng(49.264341, -122.526957);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(mapleRidge));
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(10.5f));
+        Criteria criteria = new Criteria();
+        @SuppressLint("MissingPermission")
+        Location location = locationManager.getLastKnownLocation(locationManager
+                .getBestProvider(criteria, false));
+
+        LatLng currPosition = new LatLng(location.getLatitude(), location.getLongitude());
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currPosition));
+        googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(location.getLatitude(), location.getLongitude())));
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(13f));
     }
 
     /**

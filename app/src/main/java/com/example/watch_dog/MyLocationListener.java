@@ -19,23 +19,67 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * MyLocationListener Class
+ */
 public class MyLocationListener implements LocationListener {
 
+    private static final int REQUEST_FINE_LOCATION = 1;
+    /**
+     * The LocationListeners context
+     */
     private Context context;
+    /**
+     * Adress parsed from API response
+     */
     private String address;
 
+    private double latitude;
 
+    private double longitude;
+
+
+    public boolean initLocationServices(Context context) {
+        if(ContextCompat.checkSelfPermission(context,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(context, "You must enable your Location Services for this app to work!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+    public void requestPermissions(Activity activity) {
+        String[] permissionList = new String[] {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+        ActivityCompat.requestPermissions(activity ,permissionList, REQUEST_FINE_LOCATION);
+    }
 
 
     public MyLocationListener(Context context) {
     this.context = context;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     @Override
     public void onLocationChanged(Location location) {
-        Log.d("Lon", "" + location.getLongitude());
-        Log.d("Lat", "" + location.getLatitude());
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
         getLocation(this.context, location.getLatitude(), location.getLongitude());
+
+
     }
 
 
