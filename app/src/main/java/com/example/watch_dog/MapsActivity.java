@@ -1,16 +1,29 @@
 package com.example.watch_dog;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,60 +46,70 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
 /**
  * <p>
- *     MapsActivity
+ * MapsActivity
  * </p>
  */
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     /**
      * <p>
-     *     Logger
+     * Logger
      * </p>
      */
     private static final String TAG = MapsActivity.class.getSimpleName();
 
     /**
      * <p>
-     *     GoogleMap obj
+     * GoogleMap obj
      * </p>
      */
     private GoogleMap mMap;
 
     /**
      * <p>
-     *     HeatmapTileProvider
+     * HeatmapTileProvider
      * </p>
      */
+
+    private SearchView mSearchView;
+    private Toolbar myToolbar;
+    /**
+     * Private instance of MyLocationListerner Class
+     */
+    private SearchView.SearchAutoComplete searchAutoComplete;
     private HeatmapTileProvider mProvider;
 
     /**
      * <p>
-     *     Polygon colour
+     * Polygon colour
      * </p>
      */
     private static final int POLGON_BORDER_COLOUR = 0xff4286f4;
 
     /**
      * <p>
-     *     Polygon line width
+     * Polygon line width
      * </p>
      */
     private static final int POLYGON_STROKE_WIDTH_PX = 5;
 
     /**
      * <p>
-     *     Transparency
+     * Transparency
      * </p>
      */
     private static final int POLYGON_ALPHA = 0x324286f4;
+    private ArrayList<String> autoCompleteList;
+    private LinkedHashMap<String, LatLng> test;
 
     /**
      * <p>
-     *     Initializes activity
+     * Initializes activity
      * </p>
      *
      * @param savedInstanceState - Reference to bundle obj
@@ -99,11 +122,239 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         new DataParser(this).execute(this);
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        populateLists();
+
+    }
+
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public void successMoveMap(LatLng coordinates) {
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinates));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(16f));
+
+
+    }
+
+    /**
+     * Inflates Menu, Checks for action bar for input.
+     * If input is valid, calls sendRequest() function
+     *
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        // Inflating Menu for toolbar
+        getMenuInflater().inflate(R.menu.menu, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        mSearchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
+
+        searchAutoComplete = (SearchView.SearchAutoComplete) mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        searchAutoComplete.setTextColor(Color.WHITE);
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, autoCompleteList);
+        searchAutoComplete.setAdapter(adapter);
+
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(this.SEARCH_SERVICE);
+        mSearchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
+        searchAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+
+                String compareSchool = adapter.getItem(position);
+
+                for (String key : test.keySet()) {
+
+                    if (key.equals(compareSchool)) {
+
+                        Toast.makeText(MapsActivity.this, "Redirecting to " +
+                                        adapter.getItem(position).toString(),
+                                Toast.LENGTH_SHORT).show();
+                        hideKeyboard(MapsActivity.this);
+                        successMoveMap(test.get(key));
+                        return;
+
+
+                    }
+
+                }
+
+
+            }
+        });
+        return true;
+    }
+
+    public void populateLists() {
+        LatLng temp;
+        test = new LinkedHashMap<String, LatLng>();
+        autoCompleteList = new ArrayList<String>();
+
+
+        // ALBION ELEMENTARY
+        autoCompleteList.add("ALBION ELEMENTARY");
+        temp = new LatLng(49.184756896931525, -122.55816321351014);
+        test.put("ALBION ELEMENTARY", temp);
+
+        // ALEXANDER ROBINSONS
+        autoCompleteList.add("ALEXANDER ROBINSON ELEMENTARY");
+        temp = new LatLng(49.21735173115143, -122.56165779138347);
+        test.put("ALEXANDER ROBINSON ELEMENTARY", temp);
+
+        // BLUE MOUNTAIN
+        autoCompleteList.add("BLUE MOUNTAIN ELEMENTARY");
+        temp = new LatLng(49.22341839489707, -122.53580698622471);
+        test.put("BLUE MOUNTAIN ELEMENTARY", temp);
+
+        // ERIC LANGTON
+        autoCompleteList.add("ERIC LANGTON ELEMENTARY");
+        temp = new LatLng(49.22326231396161, -122.5969419255582);
+        test.put("ERIC LANGTON ELEMENTARY", temp);
+
+        // FAIRVIEW
+        autoCompleteList.add("FAIRVIEW ELEMENTARY");
+        temp = new LatLng(49.22426687297897, -122.65089996017242);
+        test.put("FAIRVIEW ELEMENTARY", temp);
+
+        // GLENWOOD
+        autoCompleteList.add("GLENWOOD ELEMENTARY");
+        temp = new LatLng(49.222006223427854, -122.627629703313);
+        test.put("GLENWOOD ELEMENTARY", temp);
+
+        // GOLDEN EARS
+        autoCompleteList.add("GOLDEN EARS ELEMENTARY");
+        temp = new LatLng(49.2160591938419, -122.58147371253287);
+        test.put("GOLDEN EARS ELEMENTARY", temp);
+
+        // HAMMOND
+        autoCompleteList.add("HAMMOND ELEMENTARY");
+        temp = new LatLng(49.21245868441194, -122.65765796988252);
+        test.put("HAMMOND ELEMENTARY", temp);
+
+        // HARRY HOOGE
+        autoCompleteList.add("HARRY HOOGE ELEMENTARY");
+        temp = new LatLng(49.22527428531852, -122.58422838766069);
+        test.put("HARRY HOOGE ELEMENTARY", temp);
+
+        // KANAKA CREEK
+        autoCompleteList.add("KANAKA CREEK ELEMENTARY");
+        temp = new LatLng(49.20388295385043, -122.57210250782072);
+        test.put("KANAKA CREEK ELEMENTARY", temp);
+
+        // LAITY VIEW
+        autoCompleteList.add("LAITY VIEW ELEMENTARY");
+        temp = new LatLng(49.227185607329695, -122.63763295851034);
+        test.put("LAITY VIEW ELEMENTARY", temp);
+
+        // MAPLE RIDGE
+        autoCompleteList.add("MAPLE RIDGE ELEMENTARY");
+        temp = new LatLng(49.21231159323936, -122.64426066470743);
+        test.put("MAPLE RIDGE ELEMENTARYY", temp);
+
+        // MOUNT CRESCENT
+        autoCompleteList.add("MOUNT CRESCENT ELEMENTARY");
+        temp = new LatLng(49.224878780152075, -122.61657783325379);
+        test.put("MOUNT CRESCENT ELEMENTARY", temp);
+
+        // RIDGEMEADOWS COLLEGE
+        autoCompleteList.add("RIDGEMEADOWS COLLEGE");
+        temp = new LatLng(49.21531970161113, -122.65296249137248);
+        test.put("RIDGEMEADOWS COLLEGE", temp);
+
+        // WEBSTERS CORNER
+        autoCompleteList.add("WEBSTER'S CORNERS ELEMENTARY");
+        temp = new LatLng(49.21999964988263, -122.51350992235457);
+        test.put("WEBSTER'S CORNERS ELEMENTARY", temp);
+
+        // YENNANON
+        autoCompleteList.add("YENNADON ELEMENTARY");
+        temp = new LatLng(49.23579816878842, -122.57615970354276);
+        test.put("YENNADON ELEMENTARY", temp);
+
+        // GARIBALD
+        autoCompleteList.add("GARIBALD SECONDARY");
+        temp = new LatLng(49.22118241103326, -122.53660388022061);
+        test.put("GARIBALD SECONDARY", temp);
+
+        // MAPLE RIDGE SENIOR
+        autoCompleteList.add("MAPLE RIDGE SENIOR SECONDARY");
+        temp = new LatLng(49.22451106742064, -122.61489463204458);
+        test.put("MAPLE RIDGE SENIOR SECONDARY", temp);
+
+        autoCompleteList.add("WESTVIEW SECONDARY");
+        temp = new LatLng(49.22435428861889, -122.64230673236665);
+        test.put("WESTVIEW SECONDARY", temp);
+
+        autoCompleteList.add("THOMAS HANEY SECONDARY");
+        temp = new LatLng(49.21181745252135, -122.58228501282599);
+        test.put("THOMAS HANEY SECONDARY", temp);
+
+        autoCompleteList.add("ALOUETTE ELEMENTARY");
+        temp = new LatLng(49.2297232123249, -122.60812115439084);
+        test.put("ALOUETTE ELEMENTARY", temp);
+
+        autoCompleteList.add("WHONNOCK ELEMENTARY");
+        temp = new LatLng(49.20620076579272, -122.46050004203373);
+        test.put("WHONNOCK ELEMENTARY", temp);
+
+        autoCompleteList.add("MAPLE RIDGE CHRISTIAN SCHOOL");
+        temp = new LatLng(49.22358547730036, -122.65355899950981);
+        test.put("MAPLE RIDGE CHRISTIAN SCHOOL", temp);
+
+        autoCompleteList.add("MAPLE RIDGE CHRISTIAN ACADEMY");
+        temp = new LatLng(49.22093380649517, -122.65382906171803);
+        test.put("MAPLE RIDGE CHRISTIAN ACADEMY", temp);
+
+        autoCompleteList.add("MEADOWRIDGE PRIVATE SCHOOL");
+        temp = new LatLng(49.224624335913916, -122.55523986494059);
+        test.put("MEADOWRIDGE PRIVATE SCHOOL", temp);
+
+        autoCompleteList.add("ST. PATRICK'S PRIVATE SCHOOL");
+        temp = new LatLng(49.222695821926294, -122.59628195319723);
+        test.put("ST. PATRICK'S PRIVATE SCHOOL", temp);
+
+        autoCompleteList.add("SAMUEL ROBERTSON TECHNICAL SECONDARY");
+        temp = new LatLng(49.192516532539216, -122.5432314511877);
+        test.put("SAMUEL ROBERTSON TECHNICAL SECONDARY", temp);
+
+        autoCompleteList.add("MAPLE RIDGE ALTERNATIVE ALOUETTE RIVER CAMPUS");
+        temp = new LatLng(49.24341374707297, -122.58173092172648);
+        test.put("MAPLE RIDGE ALTERNATIVE ALOUETTE RIVER CAMPUS", temp);
+
+
     }
 
     /**
      * <p>
-     *     Applies map settings
+     * Applies map settings
      * </p>
      *
      * @param googleMap - GoogleMap obj
@@ -145,19 +396,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /**
      * <p>
-     *     Focuses the view of the map on Maple Ridge
+     * Focuses the view of the map on Maple Ridge
      * </p>
      *
      * @param googleMap - Googlemap obj
      */
     public void focusMapView(GoogleMap googleMap) {
-        LatLng mapleRidge = new LatLng(49.264341, -122.526957);
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mapleRidge, 10.5f));
+        LatLng mapleRidge = new LatLng(49.254450, -122.536980);
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mapleRidge, 11f));
     }
 
     /**
      * <p>
-     *     Draws the polygon outlining Maple Ridge's city boundary
+     * Draws the polygon outlining Maple Ridge's city boundary
      * </p>
      *
      * @param googleMap - GoogleMap obj
@@ -507,7 +758,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /**
      * <p>
-     *     Draws the heat map
+     * Draws the heat map
      * </p>
      *
      * @param crimeLatLngs - Lat and lngs of all crimes
@@ -520,10 +771,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
     /**
      * <p>
-     *     Add school pins to map
+     * Add school pins to map
      * </p>
      *
      * @param schools - Schools
@@ -540,15 +790,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /**
      * <p>
-     *     Resize map icon
+     * Resize map icon
      * </p>
      *
      * @param iconName - Icon name
-     * @param width - Width
-     * @param height - Height
+     * @param width    - Width
+     * @param height   - Height
      * @return Icon
      */
-    public Bitmap resizeMapIcon(String iconName, int width, int height){
+    public Bitmap resizeMapIcon(String iconName, int width, int height) {
         Bitmap imageBitmap = BitmapFactory.decodeResource(
                 getResources(),
                 getResources().getIdentifier(iconName, "drawable", getPackageName()));
@@ -558,22 +808,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /**
      * <p>
-     *     Parse json crime data
+     * Parse json crime data
      * </p>
      */
     private class DataParser extends AsyncTask<Context, Void, ArrayList<ArrayList<Object>>> {
 
         /**
          * <p>
-         *     Map activity
+         * Map activity
          * </p>
          */
         private MapsActivity map;
 
         /**
          * <p>
-         *     Constructor
+         * Constructor
          * </p>
+         *
          * @param context
          */
         public DataParser(MapsActivity context) {
@@ -582,11 +833,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         /**
          * <p>
-         *     toString the json crime data
+         * toString the json crime data
          * </p>
          *
          * @param context - Acitivity
-         * @param file - Json file
+         * @param file    - Json file
          * @return Crime data as a string
          */
         public String loadJSONFromAsset(Context context, String file) {
@@ -607,7 +858,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         /**
          * <p>
-         *     Parses the lat and lng for all crimes
+         * Parses the lat and lng for all crimes
          * </p>
          *
          * @param data - JSON object
@@ -619,7 +870,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 JSONArray features = data.getJSONArray("features");
                 for (int i = 0; i < features.length(); i++) {
                     JSONArray latLng = ((JSONObject) features.get(i)).getJSONObject("geometry")
-                                                                     .getJSONArray("coordinates");
+                            .getJSONArray("coordinates");
                     double lat = latLng.getDouble(1);
                     double lng = latLng.getDouble(0);
 
@@ -634,7 +885,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         /**
          * <p>
-         *     Parses the school data
+         * Parses the school data
          * </p>
          *
          * @param data - JSON object
